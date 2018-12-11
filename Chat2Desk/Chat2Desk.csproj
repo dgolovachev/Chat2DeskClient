@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>598e52b7-5ab0-490d-a67e-56db515f9d12</ProjectGuid>
+    <ProjectGuid>{598E52B7-5AB0-490D-A67E-56DB515F9D12}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Chat2Desk</RootNamespace>
-    <AssemblyName>Chat2Desk</AssemblyName>
+    <AssemblyName>Chat2DeskClient</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Chat2DeskClient.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,24 +31,62 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Attributes\StringValueAttribute.cs" />
+    <Compile Include="Chat2DeskClient.cs" />
+    <Compile Include="Converters\DateTimeUtcConverter.cs" />
+    <Compile Include="Converters\MessageFromConverter.cs" />
+    <Compile Include="Converters\ReadConverter.cs" />
+    <Compile Include="Converters\TransportConverter.cs" />
+    <Compile Include="Exceptions\APIExceededException.cs" />
+    <Compile Include="Exceptions\HttpException.cs" />
+    <Compile Include="Exceptions\ParseException.cs" />
+    <Compile Include="Exceptions\TokenException.cs" />
+    <Compile Include="Parser\IResponseParser.cs" />
+    <Compile Include="Parser\ResponseParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\HttpService.cs" />
+    <Compile Include="Services\IHttpService.cs" />
+    <Compile Include="Types\ApiMode.cs" />
+    <Compile Include="Types\ApiResponse.cs" />
+    <Compile Include="Types\Channel.cs" />
+    <Compile Include="Types\Client.cs" />
+    <Compile Include="Types\ClientTransports.cs" />
+    <Compile Include="Types\Dialog.cs" />
+    <Compile Include="Types\DialogLastMessage.cs" />
+    <Compile Include="Types\Enums\DialogState.cs" />
+    <Compile Include="Types\Enums\HttpMethod.cs" />
+    <Compile Include="Types\Enums\MessageFrom.cs" />
+    <Compile Include="Types\Enums\Read.cs" />
+    <Compile Include="Types\Enums\ResponseStatus.cs" />
+    <Compile Include="Types\Enums\Role.cs" />
+    <Compile Include="Types\Enums\Transport.cs" />
+    <Compile Include="Types\Info.cs" />
+    <Compile Include="Types\Message.cs" />
+    <Compile Include="Types\Meta.cs" />
+    <Compile Include="Types\Operator.cs" />
+    <Compile Include="Types\Response.cs" />
+    <Compile Include="Types\Tag.cs" />
+    <Compile Include="Types\Template.cs" />
+    <Compile Include="Utils\EnumUtils.cs" />
+    <Compile Include="Utils\Extensions\HttpClientDeleteExtension.cs" />
+    <Compile Include="Utils\Extensions\StringExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

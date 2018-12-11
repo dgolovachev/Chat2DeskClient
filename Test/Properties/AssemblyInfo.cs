@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Chat2Desk")]
-[assembly: AssemblyDescription("Клиент для работы с сервисом Chat2Desk")]
+[assembly: AssemblyTitle("Test")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("D.A.Golovachev")]
-[assembly: AssemblyProduct("Chat2Desk")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Test")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("598e52b7-5ab0-490d-a67e-56db515f9d12")]
+[assembly: Guid("8324e5ab-bb61-4db9-b31c-37ac9e952146")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
