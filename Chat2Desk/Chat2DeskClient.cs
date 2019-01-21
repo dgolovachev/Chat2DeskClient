@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using Chat2Desk.Exceptions;
@@ -7,6 +8,7 @@ using Chat2Desk.Parser;
 using Chat2Desk.Services;
 using Chat2Desk.Types;
 using Chat2Desk.Types.Enums;
+using Chat2Desk.Types.Response;
 using Chat2Desk.Utils;
 using Chat2Desk.Utils.Extensions;
 
@@ -165,6 +167,45 @@ namespace Chat2Desk
             var response = _httpService.Request(url, Method.GET);
             CheckResponse(response);
             return _responseParser.Parse<Response<Message>>(response);
+        }
+
+        /// <summary>
+        /// Отправляет сообзение клиенту
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="text"></param>
+        /// <param name="transport"></param>
+        /// <param name="channelId"></param>
+        /// <param name="operatorId"></param>
+        /// <param name="attachment"></param>
+        /// <param name="pdf"></param>
+        /// <param name="openDialog"></param>
+        /// <returns></returns>
+        /// <exception cref="TokenException">Ошибка токена</exception>
+        /// <exception cref="HttpException">Ошибка Http</exception>
+        /// <exception cref="ParseException">Ошибка парсинга</exception>
+        /// <exception cref="APIExceededException">Превышен лимит запросов к API</exception>
+        public MessageReponse SendMessage(int clientId, string text, Transport transport, int channelId = default(int), int operatorId = default(int), string attachment = "", string pdf = "", bool openDialog = false)
+        {
+            if (clientId <= 0) throw new ArgumentException("Id клиента не может быть меньше или равен 0", "clientId");
+            if (string.IsNullOrWhiteSpace(text)) throw new ArgumentException("Текст не может быть пустым", "text");
+
+            var url = $"{_messagesBaseUrl}";
+
+            dynamic param = new ExpandoObject();
+            param.client_id = clientId;
+            param.text = text;
+            if (!string.IsNullOrWhiteSpace(attachment)) param.attachment = attachment;
+            if (!string.IsNullOrWhiteSpace(pdf)) param.pdf = pdf;
+            param.type = "to_client";
+            param.transport = transport.GetStringValue();
+            if (channelId != default(int)) param.channel_id = channelId;
+            if (operatorId != default(int)) param.operator_id = operatorId;
+            param.open_dialog = openDialog;
+
+            var response = _httpService.Request(url, Method.POST, param);
+            CheckResponse(response);
+            return _responseParser.Parse<MessageReponse>(response);
         }
 
         /// <summary>
@@ -350,6 +391,38 @@ namespace Chat2Desk
             CheckResponse(response);
             return _responseParser.Parse<ApiResponse>(response);
         }
+
+        /// <summary>
+        /// Добавляет клиента в систему
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <param name="transport"></param>
+        /// <param name="channelId"></param>
+        /// <param name="nickname"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">
+        /// Телефон не может быть пустым
+        /// </exception>
+        /// <exception cref="TokenException">Ошибка токена</exception>
+        /// <exception cref="HttpException">Ошибка Http</exception>
+        /// <exception cref="ParseException">Ошибка парсинга</exception>
+        /// <exception cref="APIExceededException">Превышен лимит запросов к API</exception>
+        public ClientResponse CreateClient(string phone, Transport transport = Transport.Whatsapp, int channelId = default(int), string nickname = "")
+        {
+            if (string.IsNullOrWhiteSpace(phone)) throw new ArgumentException("Телефон не может быть пустым", "phone");
+            var url = $"{_clientsBaseUrl}";
+
+            dynamic param = new ExpandoObject();
+            param.phone = phone;
+            param.transport = transport.GetStringValue();
+            if (channelId != default(int)) param.channel_id = channelId;
+            if (!string.IsNullOrWhiteSpace(nickname)) param.nickname = nickname;
+
+            var response = _httpService.Request(url, Method.POST, param);
+            CheckResponse(response);
+            return _responseParser.Parse<ClientResponse>(response);
+        }
+
 
         #endregion
 
@@ -663,7 +736,7 @@ namespace Chat2Desk
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             }
-          
+
         }
 
     }

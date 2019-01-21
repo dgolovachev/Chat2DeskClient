@@ -61,7 +61,7 @@
     <Compile Include="Services\HttpService.cs" />
     <Compile Include="Services\IHttpService.cs" />
     <Compile Include="Types\ApiMode.cs" />
-    <Compile Include="Types\ApiResponse.cs" />
+    <Compile Include="Types\Response\ApiResponse.cs" />
     <Compile Include="Types\Channel.cs" />
     <Compile Include="Types\Client.cs" />
     <Compile Include="Types\ClientTransports.cs" />
@@ -76,6 +76,8 @@
     <Compile Include="Types\Enums\Transport.cs" />
     <Compile Include="Types\Info.cs" />
     <Compile Include="Types\Message.cs" />
+    <Compile Include="Types\Response\ClientResponse.cs" />
+    <Compile Include="Types\Response\MessageReponse.cs" />
     <Compile Include="Types\Meta.cs" />
     <Compile Include="Types\Operator.cs" />
     <Compile Include="Types\Response.cs" />

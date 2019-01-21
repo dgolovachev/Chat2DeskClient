@@ -66,7 +66,6 @@ namespace Chat2Desk.Services
                 {
                     case Method.GET:
                         {
-                            //throw new Exception(_httpClient.DefaultRequestHeaders);
                             var response = _httpClient.GetAsync(url).Result;
                             return response.Content.ReadAsStringAsync().Result;
                         }

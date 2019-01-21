@@ -1,7 +1,7 @@
 ﻿using Chat2Desk.Types.Enums;
 using Newtonsoft.Json;
 
-namespace Chat2Desk.Types
+namespace Chat2Desk.Types.Response
 {
     /// <summary>
     /// Ответ сервиса
