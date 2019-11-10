@@ -36,31 +36,36 @@ namespace Chat2Desk.Types
         /// </summary>
         [JsonProperty("coordinates")]
         public object Coordinates { get; set; }
+      
+        //[JsonProperty("transport")]
+        //[JsonConverter(typeof(TransportConverter))]
+        //public string Transport { get; set; }
+
         /// <summary>
         /// Транспорт
         /// </summary>
         [JsonProperty("transport")]
-        [JsonConverter(typeof(TransportConverter))]
-        public Transport Transport { get; set; }
-
-       // /// <summary>
-       // /// Транспорт
-       // /// </summary>
-       // [JsonProperty("transport")]
-       // public string Transport { get; set; }
+        public string Transport { get; set; }
 
 
         /// <summary>
         /// Тип сообщение (от кого сообщение)
         /// </summary>
+        //[JsonProperty("type")]
+        //public MessageFrom Type { get; set; }
+
         [JsonProperty("type")]
-        public MessageFrom Type { get; set; }
+        public string Type { get; set; }
         /// <summary>
         /// Статус прочтения сообщения
         /// </summary>
+        //[JsonProperty("read")]
+        //[JsonConverter(typeof(ReadConverter))]
+        //public Read Read { get; set; }
+
         [JsonProperty("read")]
-        [JsonConverter(typeof(ReadConverter))]
-        public Read Read { get; set; }
+        public string Read { get; set; }
+
         /// <summary>
         /// Дата создание
         /// </summary>

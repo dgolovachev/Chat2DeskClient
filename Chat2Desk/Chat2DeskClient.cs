@@ -31,8 +31,10 @@ namespace Chat2Desk
         private readonly string _messagesBaseUrl = $"{BaseUrl}/messages";
 
         private const string AuthErrorMessage = "You need to auth";
+        private const string TokenErrorMessage = "You have to specify your token. See API manual on info@chat2desk.com";
         private const string ApiRequestExceededMessage = "Number of API requests exceeded";
         private const string ApiCallsExeededMessage = "API calls exceeded API limit per month";
+        private const string PageNotFoundMessage = "Page not found";
 
         /// <summary>
         /// Проверяет на ошибки запросов к API
@@ -42,9 +44,11 @@ namespace Chat2Desk
         /// <exception cref="APIExceededException">Превышен лимит запросов к API</exception>
         private void CheckResponse(string response)
         {
-            if (response.Contains(AuthErrorMessage)) throw new TokenException("Ошибка токена, проверьте токен");
-            if (response.Contains(ApiRequestExceededMessage)) throw new APIExceededException("Превышен лимит запросов к API");
-            if (response.Contains(ApiCallsExeededMessage)) throw new APIExceededException("Превышен лимит запросов к API");
+            if (response.Contains(AuthErrorMessage)) throw new TokenException("You need to auth");
+            if (response.Contains(TokenErrorMessage)) throw new TokenException("You have to specify your token. See API manual on info@chat2desk.com");
+            if (response.Contains(ApiRequestExceededMessage)) throw new APIExceededException("Number of API requests exceeded");
+            if (response.Contains(ApiCallsExeededMessage)) throw new APIExceededException("API calls exceeded API limit per month");
+            if (response.Contains(PageNotFoundMessage)) throw new PageNotFounException("Page not found");
         }
 
         /// <summary>
@@ -57,7 +61,7 @@ namespace Chat2Desk
         /// <exception cref="APIExceededException">Превышен лимит запросов к API</exception>
         public ApiResponse WebHook(string url = null)
         {
-            var webHookUrl = $"{BaseUrl}companies/web_hook";
+            var webHookUrl = $"{BaseUrl}/companies/web_hook";
             var response = _httpService.Request(webHookUrl, Method.POST, string.IsNullOrWhiteSpace(url) ? new { url = string.Empty } : new { url = url });
             CheckResponse(response);
             return _responseParser.Parse<ApiResponse>(response);
@@ -170,7 +174,7 @@ namespace Chat2Desk
         }
 
         /// <summary>
-        /// Отправляет сообзение клиенту
+        /// Отправляет сообщение клиенту
         /// </summary>
         /// <param name="clientId"></param>
         /// <param name="text"></param>

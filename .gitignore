@@ -259,3 +259,14 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Коннектор
+/API_1.0_manual.pdf
+/c2dInstall.bat
+/Chat2Desk-node
+/Chat2Desk.docx
+/CHAT2DESK.gz
+/Chat2DeskClient.dll
+/export.txt
+/ip.txt
+/Scripts manual.pdf
+/Test/Chat2DeskConnector.cs

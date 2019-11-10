@@ -10,7 +10,7 @@ using Method = Chat2Desk.Types.Enums.Method;
 namespace Chat2Desk.Services
 {
     /// <summary>
-    /// 
+    /// HttpService
     /// </summary>
     public class HttpService : IHttpService
     {

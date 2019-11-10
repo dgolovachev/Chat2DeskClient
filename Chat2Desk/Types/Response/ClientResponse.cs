@@ -22,7 +22,7 @@ namespace Chat2Desk.Types.Response
     }
 
     /// <summary>
-    /// Data
+    /// ClientData
     /// </summary>
     [JsonObject]
     public class ClientData

@@ -56,7 +56,7 @@ namespace Chat2Desk.Parser
             }
             catch (Exception e)
             {
-                throw new ParseException($"Parsing error: {e.Message}", e);
+                throw new ParseException($"Parsing error: {e.Message},\n json: {json},\n selectToken: {selectToken}", e);
             }
         }
     }

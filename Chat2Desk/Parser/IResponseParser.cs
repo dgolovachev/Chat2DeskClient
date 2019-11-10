@@ -1,7 +1,7 @@
 ﻿namespace Chat2Desk.Parser
 {
     /// <summary>
-    /// 
+    /// IResponseParser
     /// </summary>
     public interface IResponseParser
     {

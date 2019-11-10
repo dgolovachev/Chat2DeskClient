@@ -53,6 +53,7 @@
     <Compile Include="Converters\TransportConverter.cs" />
     <Compile Include="Exceptions\APIExceededException.cs" />
     <Compile Include="Exceptions\HttpException.cs" />
+    <Compile Include="Exceptions\PageNotFounException.cs" />
     <Compile Include="Exceptions\ParseException.cs" />
     <Compile Include="Exceptions\TokenException.cs" />
     <Compile Include="Parser\IResponseParser.cs" />
