@@ -118,6 +118,90 @@ namespace Chat2Desk.Types.Enums
         /// </summary>
         [StringValue("wechat")]
         [EnumMember(Value = "wechat")]
-        Wechat
+        Wechat,
+        /// <summary>
+        /// Wa_Clickatell
+        /// </summary>
+        [StringValue("wa_clickatell")]
+        [EnumMember(Value = "wa_clickatell")]
+        Wa_Clickatell,
+        /// <summary>
+        /// Viber_Tr
+        /// </summary>
+        [StringValue("viber_tr")]
+        [EnumMember(Value = "viber_tr")]
+        Viber_Tr,
+        /// <summary>
+        /// Yandex_Dialogs
+        /// </summary>
+        [StringValue("yandex_dialogs")]
+        [EnumMember(Value = "yandex_dialogs")]
+        Yandex_Dialogs,
+        /// <summary>
+        /// Wa_Infobip
+        /// </summary>
+        [StringValue("wa_infobip")]
+        [EnumMember(Value = "wa_infobip")]
+        Wa_Infobip,
+        /// <summary>
+        /// Wa_Cm
+        /// </summary>
+        [StringValue("wa_cm")]
+        [EnumMember(Value = "wa_cm")]
+        Wa_Cm,
+        /// <summary>
+        /// Wa_Tr
+        /// </summary>
+        [StringValue("wa_tr")]
+        [EnumMember(Value = "wa_tr")]
+        Wa_Tr,
+        /// <summary>
+        /// Wa_Wavy
+        /// </summary>
+        [StringValue("wa_wavy")]
+        [EnumMember(Value = "wa_wavy")]
+        Wa_Wavy,
+        /// <summary>
+        /// Wa_Botmaker
+        /// </summary>
+        [StringValue("wa_botmaker")]
+        [EnumMember(Value = "wa_botmaker")]
+        Wa_Botmaker,
+        /// <summary>
+        /// Viber_Infobip
+        /// </summary>
+        [StringValue("viber_infobip")]
+        [EnumMember(Value = "viber_infobip")]
+        Viber_Infobip,
+        /// <summary>
+        /// Wa_Dialog
+        /// </summary>
+        [StringValue("wa_dialog")]
+        [EnumMember(Value = "wa_dialog")]
+        Wa_Dialog,
+        /// <summary>
+        /// Insta_Local
+        /// </summary>
+        [StringValue("insta_local")]
+        [EnumMember(Value = "insta_local")]
+        Insta_Local,
+        /// <summary>
+        /// Tg_User
+        /// </summary>
+        [StringValue("tg_user")]
+        [EnumMember(Value = "tg_user")]
+        Tg_User,
+        /// <summary>
+        /// Vox_Implant
+        /// </summary>
+        [StringValue("vox_implant")]
+        [EnumMember(Value = "vox_implant")]
+        Vox_Implant,
+        /// <summary>
+        /// Sms_Infobip
+        /// </summary>
+        [StringValue("sms_infobip")]
+        [EnumMember(Value = "sms_infobip")]
+        Sms_Infobip,
     }
 }

@@ -30,7 +30,7 @@ namespace Chat2Desk.Parser
             {
                 throw new ParseException($"Parsing error: {e.Message}", e);
             }
-        }
+            }
 
         /// <summary>
         /// Парсит json и приводи к типу Т определенную часть

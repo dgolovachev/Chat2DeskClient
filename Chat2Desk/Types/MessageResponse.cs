@@ -1,30 +1,13 @@
 ﻿using Chat2Desk.Types.Enums;
-using Newtonsoft.Json;
+using Newtonsoft.Json; 
 
-namespace Chat2Desk.Types.Response
+namespace Chat2Desk.Types
 {
     /// <summary>
-    /// MessageReponse
+    /// MessageResponse
     /// </summary>
     [JsonObject]
-    public class MessageReponse
-    {
-        /// <summary>
-        /// Data
-        /// </summary>
-        [JsonProperty("data")]
-        public MessageData Data { get; set; }
-        /// <summary>
-        /// Статус
-        /// </summary>
-        [JsonProperty("status")]
-        public ResponseStatus Status { get; set; }
-    }
-    /// <summary>
-    /// MessageData
-    /// </summary>
-    [JsonObject]
-    public class MessageData
+    public class MessageResponse
     {
         /// <summary>
         /// Id Сообщения
@@ -67,5 +50,4 @@ namespace Chat2Desk.Types.Response
         [JsonProperty("request_id")]
         public int? RequestId { get; set; }
     }
-
 }

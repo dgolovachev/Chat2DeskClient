@@ -62,5 +62,15 @@ namespace Chat2Desk.Types
         /// </summary>
         [JsonProperty("opened_dialogs")]
         public int OpenedDialogs { get; set; }
+        /// <summary>
+        /// Статус
+        /// </summary>
+        [JsonProperty("status_id")]
+        public int? StatusId { get; set; }
+        /// <summary>
+        /// Внешний Идентификатор
+        /// </summary>
+        [JsonProperty("external_id")]
+        public int? ExternalId { get; set; }
     }
 }

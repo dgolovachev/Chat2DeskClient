@@ -14,13 +14,13 @@ namespace Chat2Desk.Types.Enums
         /// <summary>
         /// Открыт
         /// </summary>
-        [StringValue("Открыт")]
+        [StringValue("open")]
         [EnumMember(Value = "open")]
         Open,
         /// <summary>
         /// Закрыт
         /// </summary>
-        [StringValue("Закрыт")]
+        [StringValue("closed")]
         [EnumMember(Value = "closed")]
         Closed
     }

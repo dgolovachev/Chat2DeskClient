@@ -1,31 +1,13 @@
-﻿using Chat2Desk.Types.Enums;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
-namespace Chat2Desk.Types.Response
+namespace Chat2Desk.Types
 {
     /// <summary>
     /// ClientResponse
     /// </summary>
     [JsonObject]
     public class ClientResponse
-    {
-        /// <summary>
-        /// Data
-        /// </summary>
-        [JsonProperty("data")]
-        public ClientData Data { get; set; }
-        /// <summary>
-        /// Status
-        /// </summary>
-        [JsonProperty("status")]
-        public ResponseStatus Status { get; set; }
-    }
-
-    /// <summary>
-    /// ClientData
-    /// </summary>
-    [JsonObject]
-    public class ClientData
     {
         /// <summary>
         /// Id
@@ -106,7 +88,6 @@ namespace Chat2Desk.Types.Response
         /// Tags
         /// </summary>
         [JsonProperty("tags")]
-        public string[] Tags { get; set; }
+        public List<Dictionary<string, string>> Tags { get; set; }
     }
-
 }

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Chat2Desk.Types
 {
@@ -68,5 +69,10 @@ namespace Chat2Desk.Types
         /// </summary>
         [JsonProperty("external_id")]
         public string ExternalId { get; set; }
+        /// <summary>
+        /// Tags
+        /// </summary>
+        [JsonProperty("tags")]
+        public List<Dictionary<string, string>> Tags { get; set; }
     }
 }

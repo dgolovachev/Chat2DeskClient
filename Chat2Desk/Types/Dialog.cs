@@ -37,11 +37,16 @@ namespace Chat2Desk.Types
         /// Id оператора
         /// </summary>
         [JsonProperty("operator_id")]
-        public int OperatorId { get; set; }
+        public int? OperatorId { get; set; }
         /// <summary>
         /// Последнее сообщение
         /// </summary>
         [JsonProperty("last_message")]
         public DialogLastMessage LastMessage { get; set; }
+        /// <summary>
+        /// Колличество сообщений в диалоге
+        /// </summary>
+        [JsonProperty("messages")]
+        public int? Messages { get; set; }
     }
 }
