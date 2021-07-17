@@ -28,6 +28,7 @@ namespace Chat2Desk
         private readonly string _channelsBaseUrl = $"{BaseUrl}/channels";
         private readonly string _templatesBaseUrl = $"{BaseUrl}/templates";
         private readonly string _messagesBaseUrl = $"{BaseUrl}/messages";
+        private readonly string _requestsBaseUrl = $"{BaseUrl}/requests";
 
         private const string AuthErrorMessage = "You need to auth";
         private const string TokenErrorMessage = "You have to specify your token. See API manual on info@chat2desk.com";
@@ -102,6 +103,29 @@ namespace Chat2Desk
             CheckResponse(response);
             return _responseParser.Parse<ApiResponse<List<ApiMode>>>(response);
         }
+
+        #region Requests
+
+        /// <summary>
+        /// Возвращает сообщения по ид обращения.
+        /// </summary>
+        /// <param name="requestId">id обращения</param> 
+        /// <returns></returns>
+        /// <exception cref="TokenException">Ошибка токена</exception>
+        /// <exception cref="HttpException">Ошибка Http</exception>
+        /// <exception cref="ParseException">Ошибка парсинга</exception>
+        /// <exception cref="APIExceededException">Превышен лимит запросов к API</exception>
+        /// 
+        public List<RequestMessage> GetRequestMessages(int requestId)
+        {
+            var url = $"{_requestsBaseUrl}/{requestId}/messages";
+
+            var response = _httpService.Request(url, Method.GET);
+            CheckResponse(response);
+            return _responseParser.Parse<List<RequestMessage>>(response);
+        }
+
+        #endregion
 
         #region Messages
 

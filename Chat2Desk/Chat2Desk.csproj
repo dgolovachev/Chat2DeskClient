@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Attributes\StringValueAttribute.cs" />
     <Compile Include="Chat2DeskClient.cs" />
+    <Compile Include="Converters\UnixTimestampJsonConverter .cs" />
     <Compile Include="Converters\DateTimeUtcConverter.cs" />
     <Compile Include="Converters\MessageFromConverter.cs" />
     <Compile Include="Converters\ReadConverter.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Types\Enums\TagType.cs" />
     <Compile Include="Types\Enums\Transport.cs" />
     <Compile Include="Types\Info.cs" />
+    <Compile Include="Types\RequestMessage.cs" />
     <Compile Include="Types\Message.cs" />
     <Compile Include="Types\MessageResponse.cs" />
     <Compile Include="Types\MessageType.cs" />
